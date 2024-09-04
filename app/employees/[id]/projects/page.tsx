@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+"use client"
 import { useRouter } from 'next/router';
 import React from 'react';
 
