@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import { useSearchParams, useParams } from 'next/navigation';
 import Link from 'next/link';
 import React from 'react';
 
@@ -8,9 +8,9 @@ const employees = [
   { id: 3, name: 'Karen', age: 35 },
 ];
 
-const page = () => {
-  const router = useRouter();
-  const { id } = router.query;
+const Page = () => {
+  const params = useParams();
+  const { id } = params;
   
   const employee = employees.find((emp) => emp.id === Number(id));
 
@@ -25,10 +25,10 @@ const page = () => {
       <p>Name: {employee.name}</p>
       <p>Age: {employee.age}</p>
       <Link href={`/employees/${id}/projects`}>
-        <a>Xem các dự án của nhân viên</a>
+        Xem các dự án của nhân viên
       </Link>
     </div>
   );
 };
 
-export default page;
+export default Page;
